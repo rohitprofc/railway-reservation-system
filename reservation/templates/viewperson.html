@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+{% block content %}
+
+<body>
+    <div class='jumbotron'>
+        <h3> Train Details </h3>
+        <ul>
+            <li>Train Number = {{train.pk}}</li>
+            <li>Train Name = {{train.train_name}}</li>
+            <li>Source = {{train.source}}</li>
+            <li>Destination = {{train.destination}}</li>
+            <li>Time = {{train.time}}</li>
+            <li>Seats Available = {{train.seats_available}}</li>
+            <li>Price for 1 ticket = {{train.price}}</li>
+        </ul>
+    </div>
+    <div style="margin-top: 50px;">
+        <center><h2>People Reserved</h2></center>
+
+        <table class="table table-striped" style="width: 90%;margin-left:75px ;margin-top: 30px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Date and time of booking</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for p in persons%}
+                <tr>
+                    <td>{{p.email}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.age}}</td>
+                    <td>{{p.gender}}</td>
+                    <td>{{p.date_and_time_of_booking}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}

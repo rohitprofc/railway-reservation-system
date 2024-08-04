@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 50px;">
+    <center><h2> My booking </h2></center>
+
+    <table class="table table-striped" style="width: 90%;margin-left:75px ;margin-top: 30px;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Train Number</th>
+                <th scope="col">Train Name</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Date and time of booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for p in persons%}
+            
+            <tr>
+                <td>{{p.train.pk}}</td>
+                <td>{{p.train.train_name}}</td>
+                <td>{{p.train.source}}</td>
+                <td>{{p.train.destination}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.age}}</td>
+                <td>{{p.gender}}</td>
+                <td>{{p.date_and_time_of_booking}}</td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

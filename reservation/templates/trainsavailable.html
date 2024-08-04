@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 50px;">
+    <center><h2> Trains </h2></center>
+
+    <table class="table table-striped" style="width: 90%;margin-left:75px ;margin-top: 30px;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Train Number</th>
+                <th scope="col">Train Name</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Time</th>
+                <th scope="col">Price</th>
+                <th scope="col">Seats Available</th>
+                <th scope="col">Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for p in trains%}
+            
+            <tr>
+                <td>{{p.pk}}</a></td>
+                <td>{{p.train_name}}</td>
+                <td>{{p.source}}</td>
+                <td>{{p.destination}}</td>
+                <td>{{p.time}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.seats_available}}</td>
+                <td><a href="http://127.0.0.1:8000/reservation/booking/{{p.pk}}"><button class='btn btn-success'>Book Ticket</button></a></td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

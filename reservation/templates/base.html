@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Railway Reservation System</title>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul class="navbar-nav">
+
+            {% if request.user.is_superuser %}
+
+            <span class="navbar-brand mb-0 h1">Admin</span>
+            {% else %}
+            <span class="navbar-brand mb-0 h1">{{request.user.username}}</span>
+
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/bookform/">Book ticket</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/mybooking/">My Bookings</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/trainform/">Add Trains</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/logout/">Logout</a>
+            </li>
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/loginform/">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/reservation/registerform/">Register</a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </nav>
+
+</head>
+{% block content %}
+{% endblock %}
+
+</html>
